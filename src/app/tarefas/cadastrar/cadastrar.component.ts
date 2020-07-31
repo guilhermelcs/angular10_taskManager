@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DialogComponent } from './../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Tarefa } from './../shared/modules/tarefa.model';
+import { NgForm } from '@angular/forms';
+import { TarefaService } from './../shared/services/tarefa.service';
 
 @Component({
   selector: 'app-cadastrar',
@@ -20,5 +23,4 @@ export class CadastrarComponent implements OnInit{
       console.log(`Dialog result: ${result}`);
     });
   }
-
 }

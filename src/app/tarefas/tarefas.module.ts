@@ -5,7 +5,7 @@ import { ListarTarefasComponent } from './listar/listar-tarefas.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-createdimport { CadastrarComponent } from './cadastrar';
+import { CadastrarComponent } from './cadastrar';
 import { DialogComponent } from './dialog/dialog.component';
 
 

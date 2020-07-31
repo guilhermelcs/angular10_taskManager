@@ -1,0 +1,8 @@
+button:focus {
+    outline: none;
+}
+.bottom-corner {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+}

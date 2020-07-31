@@ -17,19 +17,9 @@ export class ListarTarefasComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.tarefas = [
-      new Tarefa(1, "Olá Angular", "Projeto foda feito por: Mateus Pires e Guilherme Lucas", false),
-      new Tarefa(2, "Olá Concluido", "Projeto foda feito por: Mateus Pires e Guilherme Lucas", true)
-    ]
+    this.tarefas = this.listarTodos();
 
-    this.aFazer = [
-      new Tarefa(3, "Olá Angular", "Projeto foda feito por: Mateus Pires e Guilherme Lucas", false),
-    ];
-
-    this.concluidos = [
-      new Tarefa(4, "Olá Concluido", "Projeto foda feito por: Mateus Pires e Guilherme Lucas", true),
-      new Tarefa(5, "Olá Angular", "Projeto foda feito por: Mateus Pires e Guilherme Lucas", true),
-    ];
+    this.aFazer = this.listarAFazer();
   }
 
   listarTodos(): Tarefa[] {
@@ -46,9 +36,16 @@ export class ListarTarefasComponent implements OnInit {
 
   cadastrar( tarefa: Tarefa ): void {
     this.tarefaService.cadastrar(tarefa);
+    this.ngOnInit();
+    console.log('teste')
   }
 
   atualizarStatus( id: number ): void {
     this.tarefaService.atualizarStatus( id );
+  }
+
+  remover( id: number ):void {
+    this.tarefaService.remover(id);
+    this.ngOnInit();
   }
 }

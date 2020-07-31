@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Tarefa, TarefaService } from '../shared';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('formTarefa', { static: true }) formTarefa: NgForm;
+  tarefa: Tarefa;
+
+  constructor( private tarefaService: TarefaService ) { }
 
   ngOnInit(): void {
+    this.tarefa = new Tarefa();
   }
 
+  cadastrar(): void {
+    if ( this.formTarefa.form.valid ) {
+      this.tarefa.concluido = false;
+      this.tarefaService.cadastrar( this.tarefa );
+      console.log('dialog');
+    }
+  }
 }
