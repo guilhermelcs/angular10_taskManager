@@ -5,13 +5,13 @@ import { ListarTarefasComponent } from './listar/listar-tarefas.component';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { CadastrarTarefaComponent } from './cadastrar-tarefa/cadastrar-tarefa.component';
-import { CadastrarComponent } from './cadastrar/cadastrar.component';
+createdimport { CadastrarComponent } from './cadastrar';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 
 @NgModule({
-  declarations: [ListarTarefasComponent, CadastrarTarefaComponent, CadastrarComponent],
+  declarations: [ListarTarefasComponent, CadastrarComponent, DialogComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -20,6 +20,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
   ],
   providers: [
     TarefaService
-  ]
+  ],
 })
+
 export class TarefasModule { }
