@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DialogComponent } from './../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Tarefa } from './../shared/modules/tarefa.model';
-import { NgForm } from '@angular/forms';
-import { TarefaService } from './../shared/services/tarefa.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cadastrar',
@@ -12,7 +10,7 @@ import { TarefaService } from './../shared/services/tarefa.service';
 })
 export class CadastrarComponent implements OnInit{
 
-  constructor( public dialog: MatDialog ) {}
+  constructor( public dialog: MatDialog, private router: Router ) {}
 
   ngOnInit(): void {}
 
@@ -20,7 +18,9 @@ export class CadastrarComponent implements OnInit{
     const dialogRef = this.dialog.open(DialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      this.router.navigate(['/hacking']);
+      console.log('oi')
     });
   }
+
 }

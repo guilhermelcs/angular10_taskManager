@@ -7,11 +7,12 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CadastrarComponent } from './cadastrar';
 import { DialogComponent } from './dialog/dialog.component';
+import { HackComponentComponent } from './hack-component/hack-component.component';
 
 
 
 @NgModule({
-  declarations: [ListarTarefasComponent, CadastrarComponent, DialogComponent],
+  declarations: [ListarTarefasComponent, CadastrarComponent, DialogComponent, HackComponentComponent],
   imports: [
     CommonModule,
     MaterialModule,

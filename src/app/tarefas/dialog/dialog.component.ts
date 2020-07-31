@@ -22,7 +22,6 @@ export class DialogComponent implements OnInit {
     if ( this.formTarefa.form.valid ) {
       this.tarefa.concluido = false;
       this.tarefaService.cadastrar( this.tarefa );
-      console.log('dialog');
     }
   }
 }

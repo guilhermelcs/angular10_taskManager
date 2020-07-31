@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefaService } from './../shared';
 import { Tarefa } from '../shared';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-listar-tarefas',
@@ -13,13 +14,12 @@ export class ListarTarefasComponent implements OnInit {
   concluidos: Tarefa[];
   aFazer: Tarefa[];
 
-  constructor( private tarefaService: TarefaService ) { }
+  constructor( private tarefaService: TarefaService, private _snackBar: MatSnackBar ) { }
 
   ngOnInit(): void {
-
     this.tarefas = this.listarTodos();
-
     this.aFazer = this.listarAFazer();
+    this.concluidos = this.listarConcluidos();
   }
 
   listarTodos(): Tarefa[] {
@@ -37,15 +37,22 @@ export class ListarTarefasComponent implements OnInit {
   cadastrar( tarefa: Tarefa ): void {
     this.tarefaService.cadastrar(tarefa);
     this.ngOnInit();
-    console.log('teste')
   }
 
   atualizarStatus( id: number ): void {
     this.tarefaService.atualizarStatus( id );
+    this.ngOnInit();
+    const snackBarRef = this.openSnackBar( this.tarefaService.getStatus( id ) ? 'Tarefa Concluída !' : 'Tarefa Incompleta !', 'Desfazer' );
   }
 
-  remover( id: number ):void {
+  remover( id: number ): void {
     this.tarefaService.remover(id);
     this.ngOnInit();
+  }
+
+  openSnackBar(message: string, action: string): void {
+    this._snackBar.open( message, action, {
+      duration: 2000,
+    });
   }
 }

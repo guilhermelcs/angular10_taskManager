@@ -62,4 +62,9 @@ export class TarefaService {
         });
         localStorage['tarefas'] = JSON.stringify(tarefas);
     }
+
+    getStatus( id: number ): boolean {
+        let tarefa = this.buscarPorId( id );
+        return tarefa.concluido;
+    }
 }
